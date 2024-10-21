@@ -1,6 +1,6 @@
 #include "kernel.h"
 
-#define NUM_OF_THREADS      10
+#define NUM_OF_THREADS      3
 #define STACKSIZE           400
 
 #define BUS_FREQ            16000000
@@ -50,21 +50,14 @@ void kernel_stack_init(int i)
     TCB_STACK[i][STACKSIZE - 16] = 0xAAAAAAAA; // R4
 }
 
-uint8_t kernel_add_threads(void(*task0)(void), void(*task1)(void), void(*task2)(void), void(*task3)(void), void(*task4)(void), void(*task5)(void), void(*task6)(void), void(*task7)(void), void(*task8)(void), void(*task9)(void))
+uint8_t kernel_add_threads(void(*task0)(void), void(*task1)(void), void(*task2)(void))
 {
     // Global Interrupts
     __disable_irq();
 
     tcbs[0].nextPt = &tcbs[1];
     tcbs[1].nextPt = &tcbs[2];
-    tcbs[2].nextPt = &tcbs[3];
-    tcbs[3].nextPt = &tcbs[4];
-    tcbs[4].nextPt = &tcbs[5];
-    tcbs[5].nextPt = &tcbs[6];
-    tcbs[6].nextPt = &tcbs[7];
-    tcbs[7].nextPt = &tcbs[8];
-    tcbs[8].nextPt = &tcbs[9];
-    tcbs[9].nextPt = &tcbs[0];
+    tcbs[2].nextPt = &tcbs[0];
 
     kernel_stack_init(0);
     // Initialize PC
@@ -77,34 +70,6 @@ uint8_t kernel_add_threads(void(*task0)(void), void(*task1)(void), void(*task2)(
     kernel_stack_init(2);
     // Initialize PC
     TCB_STACK[2][STACKSIZE - 2] = (int32_t)(task2);
-
-    kernel_stack_init(3);
-    // Initialize PC
-    TCB_STACK[3][STACKSIZE - 2] = (int32_t)(task3);
-
-    kernel_stack_init(4);
-    // Initialize PC
-    TCB_STACK[4][STACKSIZE - 2] = (int32_t)(task4);
-
-    kernel_stack_init(5);
-    // Initialize PC
-    TCB_STACK[5][STACKSIZE - 2] = (int32_t)(task5);
-
-    kernel_stack_init(6);
-    // Initialize PC
-    TCB_STACK[6][STACKSIZE - 2] = (int32_t)(task6);
-
-    kernel_stack_init(7);
-    // Initialize PC
-    TCB_STACK[7][STACKSIZE - 2] = (int32_t)(task7);
-
-    kernel_stack_init(8);
-    // Initialize PC
-    TCB_STACK[8][STACKSIZE - 2] = (int32_t)(task8);
-
-    kernel_stack_init(9);
-    // Initialize PC
-    TCB_STACK[9][STACKSIZE - 2] = (int32_t)(task9);
 
 
     // Start form thread 0

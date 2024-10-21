@@ -1,7 +1,7 @@
 /home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include/core_cm4.h:1814:22:__NVIC_SetPriority	2
 ../Src/kernel.c:30:6:kernel_stack_init	1
 ../Src/kernel.c:53:9:kernel_add_threads	1
-../Src/kernel.c:84:6:kernel_init	1
-../Src/kernel.c:89:6:kernel_launch	1
-../Src/kernel.c:116:29:SysTick_Handler	1
-../Src/kernel.c:155:6:scheduler_launch	1
+../Src/kernel.c:119:6:kernel_init	1
+../Src/kernel.c:124:6:kernel_launch	1
+../Src/kernel.c:151:29:SysTick_Handler	1
+../Src/kernel.c:190:6:scheduler_launch	1

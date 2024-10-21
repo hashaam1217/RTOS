@@ -7,13 +7,9 @@
 
 typedef uint32_t TaskProfiler;
 
-TaskProfiler Task0_Profiler, Task1_Profiler, Task2_Profiler;
+TaskProfiler Task0_Profiler, Task1_Profiler, Task2_Profiler, Task3_Profiler, Task4_Profiler, Task5_Profiler, Task6_Profiler, Task7_Profiler, Task8_Profiler, Task9_Profiler;
 
 
-
-void task_hello0(void);
-void task_hello1(void);
-void task_hello2(void);
 
 
 
@@ -41,7 +37,61 @@ void task2(void)
 	}
 }
 
+void task3(void)
+{
+	while(1)
+	{
+		Task3_Profiler++;
+	}
+}
 
+void task4(void)
+{
+	while(1)
+	{
+		Task4_Profiler++;
+	}
+}
+
+void task5(void)
+{
+	while(1)
+	{
+		Task5_Profiler++;
+	}
+}
+
+void task6(void)
+{
+	while(1)
+	{
+		Task6_Profiler++;
+	}
+}
+
+void task7(void)
+{
+	while(1)
+	{
+		Task7_Profiler++;
+	}
+}
+
+void task8(void)
+{
+	while(1)
+	{
+		Task8_Profiler++;
+	}
+}
+
+void task9(void)
+{
+	while(1)
+	{
+		Task9_Profiler++;
+	}
+}
 
 int main (void)
 {
@@ -53,7 +103,7 @@ int main (void)
     printf("Starting \n\r");
 
     // Add Threads
-    kernel_add_threads(&task0, &task1, &task2);
+    kernel_add_threads(&task0, &task1, &task2, &task3, &task4, &task5, &task6, &task7, &task8, &task9);
 
     printf("Added Threads \n\r");
     // Set RoundRobin Time Quanta

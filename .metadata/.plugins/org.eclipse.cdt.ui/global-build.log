@@ -1,182 +1,6 @@
-08:31:03 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
-make -j12 all 
-arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f446retx.d" -MT"Startup/startup_stm32f446retx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
-arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Round_Robin_Scheduler.elf
- 
-arm-none-eabi-size  Round_Robin_Scheduler.elf 
-arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
-   text	   data	    bss	    dec	    hex	filename
-   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
-Finished building: default.size.stdout
- 
-Finished building: Round_Robin_Scheduler.list
- 
-08:31:13 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
-make -j12 all 
-arm-none-eabi-size  Round_Robin_Scheduler.elf 
-   text	   data	    bss	    dec	    hex	filename
-   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
-Finished building: default.size.stdout
- 
-08:31:50 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Round_Robin_Scheduler.elf
- 
-arm-none-eabi-size  Round_Robin_Scheduler.elf 
-arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
-   text	   data	    bss	    dec	    hex	filename
-   6324	     92	   3148	   9564	   255c	Round_Robin_Scheduler.elf
-Finished building: default.size.stdout
- 
-Finished building: Round_Robin_Scheduler.list
- 
-08:32:26 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-../Src/main.c: In function 'task0':
-../Src/main.c:27:17: error: 'a' undeclared (first use in this function)
-   27 |                 a++;
-      |                 ^
-../Src/main.c:27:17: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [Src/subdir.mk:37: Src/main.o] Error 1
-"make -j12 all" terminated with exit code 2. Build might be incomplete.
-08:32:34 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-../Src/main.c: In function 'task0':
-../Src/main.c:27:17: error: 'a' undeclared (first use in this function)
-   27 |                 a++;
-      |                 ^
-../Src/main.c:27:17: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [Src/subdir.mk:37: Src/main.o] Error 1
-"make -j12 all" terminated with exit code 2. Build might be incomplete.
-08:32:42 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Round_Robin_Scheduler.elf
- 
-arm-none-eabi-size  Round_Robin_Scheduler.elf 
-arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
-   text	   data	    bss	    dec	    hex	filename
-   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
-Finished building: default.size.stdout
- 
-Finished building: Round_Robin_Scheduler.list
- 
-08:33:31 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Round_Robin_Scheduler.elf
- 
-arm-none-eabi-size  Round_Robin_Scheduler.elf 
-arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
-   text	   data	    bss	    dec	    hex	filename
-   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
-Finished building: default.size.stdout
- 
-Finished building: Round_Robin_Scheduler.list
- 
-08:34:02 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-../Src/main.c: In function 'task0':
-../Src/main.c:26:17: error: 'a' undeclared (first use in this function)
-   26 |                 a++;
-      |                 ^
-../Src/main.c:26:17: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [Src/subdir.mk:37: Src/main.o] Error 1
-"make -j12 all" terminated with exit code 2. Build might be incomplete.
-08:34:11 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Round_Robin_Scheduler.elf
- 
-arm-none-eabi-size  Round_Robin_Scheduler.elf 
-arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
-   text	   data	    bss	    dec	    hex	filename
-   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
-Finished building: default.size.stdout
- 
-Finished building: Round_Robin_Scheduler.list
- 
-08:35:24 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Round_Robin_Scheduler.elf
- 
-arm-none-eabi-size  Round_Robin_Scheduler.elf 
-arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
-   text	   data	    bss	    dec	    hex	filename
-   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
-Finished building: default.size.stdout
- 
-Finished building: Round_Robin_Scheduler.list
- 
-08:36:37 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
+10:30:07 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
 make -j12 all 
 arm-none-eabi-gcc "../Src/kernel.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/kernel.d" -MT"Src/kernel.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/kernel.o"
-arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Round_Robin_Scheduler.elf
- 
-arm-none-eabi-size  Round_Robin_Scheduler.elf 
-arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
-   text	   data	    bss	    dec	    hex	filename
-   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
-Finished building: default.size.stdout
- 
-Finished building: Round_Robin_Scheduler.list
- 
-08:36:41 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
-make -j12 all 
-arm-none-eabi-size  Round_Robin_Scheduler.elf 
-   text	   data	    bss	    dec	    hex	filename
-   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
-Finished building: default.size.stdout
- 
-08:37:21 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
-make -j12 all 
-arm-none-eabi-size  Round_Robin_Scheduler.elf 
-   text	   data	    bss	    dec	    hex	filename
-   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
-Finished building: default.size.stdout
- 
-08:38:58 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
-make -j12 all 
-arm-none-eabi-size  Round_Robin_Scheduler.elf 
-   text	   data	    bss	    dec	    hex	filename
-   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
-Finished building: default.size.stdout
- 
-08:40:51 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
-make -j12 all 
-arm-none-eabi-size  Round_Robin_Scheduler.elf 
-   text	   data	    bss	    dec	    hex	filename
-   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
-Finished building: default.size.stdout
- 
-08:45:18 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/kernel.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/kernel.d" -MT"Src/kernel.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/kernel.o"
-arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Round_Robin_Scheduler.elf
- 
-arm-none-eabi-size  Round_Robin_Scheduler.elf 
-arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
-   text	   data	    bss	    dec	    hex	filename
-   6312	     92	   6748	  13152	   3360	Round_Robin_Scheduler.elf
-Finished building: default.size.stdout
- 
-Finished building: Round_Robin_Scheduler.list
- 
-08:46:22 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
-make -j12 all 
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
 arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Round_Robin_Scheduler.elf
@@ -184,8 +8,15 @@ Finished building target: Round_Robin_Scheduler.elf
 arm-none-eabi-size  Round_Robin_Scheduler.elf 
 arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
    text	   data	    bss	    dec	    hex	filename
-   6288	     92	   6748	  13128	   3348	Round_Robin_Scheduler.elf
+   6684	     92	  18028	  24804	   60e4	Round_Robin_Scheduler.elf
 Finished building: default.size.stdout
  
 Finished building: Round_Robin_Scheduler.list
+ 
+10:30:39 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
+make -j12 all 
+arm-none-eabi-size  Round_Robin_Scheduler.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6684	     92	  18028	  24804	   60e4	Round_Robin_Scheduler.elf
+Finished building: default.size.stdout
  
