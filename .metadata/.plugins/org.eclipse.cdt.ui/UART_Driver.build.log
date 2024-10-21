@@ -1,10 +1,17 @@
-22:47:42 **** Incremental Build of configuration Debug for project UART_Driver ****
+00:47:48 **** Incremental Build of configuration Debug for project UART_Driver ****
 make -j12 all 
+arm-none-eabi-gcc "../Src/timebase.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/timebase.d" -MT"Src/timebase.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/timebase.o"
+arm-none-eabi-gcc -o "UART_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/UART_Driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART_Driver.elf
+ 
 arm-none-eabi-size  UART_Driver.elf 
+arm-none-eabi-objdump -h -S UART_Driver.elf  > "UART_Driver.list"
    text	   data	    bss	    dec	    hex	filename
-   5408	     92	   1900	   7400	   1ce8	UART_Driver.elf
+   5524	     96	   1912	   7532	   1d6c	UART_Driver.elf
 Finished building: default.size.stdout
  
+Finished building: UART_Driver.list
+ 
 
-22:47:42 Build Finished. 0 errors, 0 warnings. (took 221ms)
+00:47:48 Build Finished. 0 errors, 0 warnings. (took 325ms)
 

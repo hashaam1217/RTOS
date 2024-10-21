@@ -808,3 +808,6 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-10-20 20:42:49.466
 !MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-10-20 22:58:22.313
+!MESSAGE Indexed 'TimeBase' (5 sources, 65 headers) in 0.632 sec: 3,434 declarations; 5,611 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.022%)

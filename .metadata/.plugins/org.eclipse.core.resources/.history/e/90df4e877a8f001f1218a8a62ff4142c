@@ -1,0 +1,10 @@
+#include "timebase.h"
+#include "stm32f446xx.h"
+
+#define CSR_E		(1U<<0) \\ Enable SysTick Counter (CSR = Control and Status Register)
+#define CSR_CSE		(1U<<2) \\ Clocksource bit (processor/external)
+
+void timebase_init()
+{
+
+}

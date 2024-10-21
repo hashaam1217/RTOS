@@ -98,6 +98,8 @@ Discarded input sections
  .text          0x00000000        0x0 ./Src/led.o
  .data          0x00000000        0x0 ./Src/led.o
  .bss           0x00000000        0x0 ./Src/led.o
+ .text.led_on   0x00000000       0x20 ./Src/led.o
+ .text.led_off  0x00000000       0x20 ./Src/led.o
  .group         0x00000000        0xc ./Src/main.o
  .group         0x00000000        0xc ./Src/main.o
  .group         0x00000000        0xc ./Src/main.o
@@ -282,6 +284,37 @@ Discarded input sections
  .debug_macro   0x00000000      0x103 ./Src/sysmem.o
  .debug_macro   0x00000000       0x6a ./Src/sysmem.o
  .debug_macro   0x00000000      0x1df ./Src/sysmem.o
+ .group         0x00000000        0xc ./Src/timebase.o
+ .group         0x00000000        0xc ./Src/timebase.o
+ .group         0x00000000        0xc ./Src/timebase.o
+ .group         0x00000000        0xc ./Src/timebase.o
+ .group         0x00000000        0xc ./Src/timebase.o
+ .group         0x00000000        0xc ./Src/timebase.o
+ .group         0x00000000        0xc ./Src/timebase.o
+ .group         0x00000000        0xc ./Src/timebase.o
+ .group         0x00000000        0xc ./Src/timebase.o
+ .group         0x00000000        0xc ./Src/timebase.o
+ .group         0x00000000        0xc ./Src/timebase.o
+ .group         0x00000000        0xc ./Src/timebase.o
+ .group         0x00000000        0xc ./Src/timebase.o
+ .group         0x00000000        0xc ./Src/timebase.o
+ .text          0x00000000        0x0 ./Src/timebase.o
+ .data          0x00000000        0x0 ./Src/timebase.o
+ .bss           0x00000000        0x0 ./Src/timebase.o
+ .debug_macro   0x00000000      0xaa2 ./Src/timebase.o
+ .debug_macro   0x00000000       0x22 ./Src/timebase.o
+ .debug_macro   0x00000000       0x8e ./Src/timebase.o
+ .debug_macro   0x00000000       0x51 ./Src/timebase.o
+ .debug_macro   0x00000000      0x103 ./Src/timebase.o
+ .debug_macro   0x00000000       0x6a ./Src/timebase.o
+ .debug_macro   0x00000000      0x1df ./Src/timebase.o
+ .debug_macro   0x00000000       0x28 ./Src/timebase.o
+ .debug_macro   0x00000000       0x1c ./Src/timebase.o
+ .debug_macro   0x00000000       0x22 ./Src/timebase.o
+ .debug_macro   0x00000000       0xfb ./Src/timebase.o
+ .debug_macro   0x00000000     0x1011 ./Src/timebase.o
+ .debug_macro   0x00000000      0x11f ./Src/timebase.o
+ .debug_macro   0x00000000    0x16749 ./Src/timebase.o
  .group         0x00000000        0xc ./Src/uart.o
  .group         0x00000000        0xc ./Src/uart.o
  .group         0x00000000        0xc ./Src/uart.o
@@ -557,6 +590,7 @@ LOAD ./Src/led.o
 LOAD ./Src/main.o
 LOAD ./Src/syscalls.o
 LOAD ./Src/sysmem.o
+LOAD ./Src/timebase.o
 LOAD ./Src/uart.o
 LOAD ./Startup/startup_stm32f446retx.o
 START GROUP
@@ -590,7 +624,7 @@ LOAD /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.
                 0x08000000                g_pfnVectors
                 0x080001c4                        . = ALIGN (0x4)
 
-.text           0x080001d0     0x12f8
+.text           0x080001d0     0x137c
                 0x080001d0                        . = ALIGN (0x4)
  *(.text)
  .text          0x080001d0       0x40 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
@@ -600,400 +634,420 @@ LOAD /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.
  .text.led_init
                 0x080002b0       0x3c ./Src/led.o
                 0x080002b0                led_init
- .text.led_on   0x080002ec       0x20 ./Src/led.o
-                0x080002ec                led_on
- .text.led_off  0x0800030c       0x20 ./Src/led.o
-                0x0800030c                led_off
- .text.main     0x0800032c       0x5c ./Src/main.o
-                0x0800032c                main
- .text._read    0x08000388       0x3a ./Src/syscalls.o
-                0x08000388                _read
- .text._write   0x080003c2       0x38 ./Src/syscalls.o
-                0x080003c2                _write
- .text._close   0x080003fa       0x18 ./Src/syscalls.o
-                0x080003fa                _close
- .text._fstat   0x08000412       0x20 ./Src/syscalls.o
-                0x08000412                _fstat
- .text._isatty  0x08000432       0x16 ./Src/syscalls.o
-                0x08000432                _isatty
- .text._lseek   0x08000448       0x1a ./Src/syscalls.o
-                0x08000448                _lseek
- *fill*         0x08000462        0x2 
- .text._sbrk    0x08000464       0x6c ./Src/sysmem.o
-                0x08000464                _sbrk
+ .text.main     0x080002ec       0x34 ./Src/main.o
+                0x080002ec                main
+ .text._read    0x08000320       0x3a ./Src/syscalls.o
+                0x08000320                _read
+ .text._write   0x0800035a       0x38 ./Src/syscalls.o
+                0x0800035a                _write
+ .text._close   0x08000392       0x18 ./Src/syscalls.o
+                0x08000392                _close
+ .text._fstat   0x080003aa       0x20 ./Src/syscalls.o
+                0x080003aa                _fstat
+ .text._isatty  0x080003ca       0x16 ./Src/syscalls.o
+                0x080003ca                _isatty
+ .text._lseek   0x080003e0       0x1a ./Src/syscalls.o
+                0x080003e0                _lseek
+ *fill*         0x080003fa        0x2 
+ .text._sbrk    0x080003fc       0x6c ./Src/sysmem.o
+                0x080003fc                _sbrk
+ .text.get_tick
+                0x08000468       0x2c ./Src/timebase.o
+                0x08000468                get_tick
+ .text.delay    0x08000494       0x44 ./Src/timebase.o
+                0x08000494                delay
+ .text.tick_increment
+                0x080004d8       0x24 ./Src/timebase.o
+                0x080004d8                tick_increment
+ .text.timebase_init
+                0x080004fc       0x4c ./Src/timebase.o
+                0x080004fc                timebase_init
+ .text.SysTick_Handler
+                0x08000548        0xc ./Src/timebase.o
+                0x08000548                SysTick_Handler
  .text.__io_putchar
-                0x080004d0       0x18 ./Src/uart.o
-                0x080004d0                __io_putchar
+                0x08000554       0x18 ./Src/uart.o
+                0x08000554                __io_putchar
  .text.uart_tx_init
-                0x080004e8       0x94 ./Src/uart.o
-                0x080004e8                uart_tx_init
+                0x0800056c       0x94 ./Src/uart.o
+                0x0800056c                uart_tx_init
  .text.uart_write
-                0x0800057c       0x30 ./Src/uart.o
+                0x08000600       0x30 ./Src/uart.o
  .text.set_uart_baudrate
-                0x080005ac       0x2c ./Src/uart.o
+                0x08000630       0x2c ./Src/uart.o
  .text.compute_uart_baudrate
-                0x080005d8       0x24 ./Src/uart.o
+                0x0800065c       0x24 ./Src/uart.o
  .text.Reset_Handler
-                0x080005fc       0x50 ./Startup/startup_stm32f446retx.o
-                0x080005fc                Reset_Handler
+                0x08000680       0x50 ./Startup/startup_stm32f446retx.o
+                0x08000680                Reset_Handler
  .text.Default_Handler
-                0x0800064c        0x2 ./Startup/startup_stm32f446retx.o
-                0x0800064c                RTC_Alarm_IRQHandler
-                0x0800064c                EXTI2_IRQHandler
-                0x0800064c                TIM8_CC_IRQHandler
-                0x0800064c                SPDIF_Rx_IRQHandler
-                0x0800064c                DebugMon_Handler
-                0x0800064c                SPI4_IRQHandler
-                0x0800064c                TIM1_CC_IRQHandler
-                0x0800064c                QuadSPI_IRQHandler
-                0x0800064c                DMA2_Stream5_IRQHandler
-                0x0800064c                HardFault_Handler
-                0x0800064c                DMA1_Stream5_IRQHandler
-                0x0800064c                SysTick_Handler
-                0x0800064c                PVD_IRQHandler
-                0x0800064c                SDIO_IRQHandler
-                0x0800064c                TAMP_STAMP_IRQHandler
-                0x0800064c                PendSV_Handler
-                0x0800064c                NMI_Handler
-                0x0800064c                CAN2_RX1_IRQHandler
-                0x0800064c                EXTI3_IRQHandler
-                0x0800064c                TIM8_TRG_COM_TIM14_IRQHandler
-                0x0800064c                TIM1_UP_TIM10_IRQHandler
-                0x0800064c                FMPI2C1_error_IRQHandler
-                0x0800064c                TIM8_UP_TIM13_IRQHandler
-                0x0800064c                I2C3_ER_IRQHandler
-                0x0800064c                EXTI0_IRQHandler
-                0x0800064c                I2C2_EV_IRQHandler
-                0x0800064c                DMA1_Stream2_IRQHandler
-                0x0800064c                CAN1_RX0_IRQHandler
-                0x0800064c                OTG_HS_WKUP_IRQHandler
-                0x0800064c                UsageFault_Handler
-                0x0800064c                CAN2_SCE_IRQHandler
-                0x0800064c                DMA2_Stream2_IRQHandler
-                0x0800064c                SPI1_IRQHandler
-                0x0800064c                TIM6_DAC_IRQHandler
-                0x0800064c                TIM1_BRK_TIM9_IRQHandler
-                0x0800064c                DCMI_IRQHandler
-                0x0800064c                CAN2_RX0_IRQHandler
-                0x0800064c                DMA2_Stream3_IRQHandler
-                0x0800064c                FMPI2C1_IRQHandler
-                0x0800064c                SAI2_IRQHandler
-                0x0800064c                USART6_IRQHandler
-                0x0800064c                USART3_IRQHandler
-                0x0800064c                CAN1_RX1_IRQHandler
-                0x0800064c                UART5_IRQHandler
-                0x0800064c                DMA2_Stream0_IRQHandler
-                0x0800064c                TIM4_IRQHandler
-                0x0800064c                I2C1_EV_IRQHandler
-                0x0800064c                HDMI_CEC_IRQHandler
-                0x0800064c                DMA1_Stream6_IRQHandler
-                0x0800064c                DMA1_Stream1_IRQHandler
-                0x0800064c                UART4_IRQHandler
-                0x0800064c                TIM3_IRQHandler
-                0x0800064c                RCC_IRQHandler
-                0x0800064c                TIM8_BRK_TIM12_IRQHandler
-                0x0800064c                Default_Handler
-                0x0800064c                EXTI15_10_IRQHandler
-                0x0800064c                ADC_IRQHandler
-                0x0800064c                DMA1_Stream7_IRQHandler
-                0x0800064c                TIM7_IRQHandler
-                0x0800064c                CAN2_TX_IRQHandler
-                0x0800064c                TIM5_IRQHandler
-                0x0800064c                DMA2_Stream7_IRQHandler
-                0x0800064c                I2C3_EV_IRQHandler
-                0x0800064c                EXTI9_5_IRQHandler
-                0x0800064c                RTC_WKUP_IRQHandler
-                0x0800064c                SPI2_IRQHandler
-                0x0800064c                OTG_HS_EP1_IN_IRQHandler
-                0x0800064c                MemManage_Handler
-                0x0800064c                DMA1_Stream0_IRQHandler
-                0x0800064c                CAN1_TX_IRQHandler
-                0x0800064c                SVC_Handler
-                0x0800064c                EXTI4_IRQHandler
-                0x0800064c                OTG_HS_EP1_OUT_IRQHandler
-                0x0800064c                WWDG_IRQHandler
-                0x0800064c                TIM2_IRQHandler
-                0x0800064c                OTG_FS_WKUP_IRQHandler
-                0x0800064c                TIM1_TRG_COM_TIM11_IRQHandler
-                0x0800064c                OTG_HS_IRQHandler
-                0x0800064c                EXTI1_IRQHandler
-                0x0800064c                USART2_IRQHandler
-                0x0800064c                I2C2_ER_IRQHandler
-                0x0800064c                DMA2_Stream1_IRQHandler
-                0x0800064c                CAN1_SCE_IRQHandler
-                0x0800064c                FLASH_IRQHandler
-                0x0800064c                DMA2_Stream4_IRQHandler
-                0x0800064c                BusFault_Handler
-                0x0800064c                USART1_IRQHandler
-                0x0800064c                OTG_FS_IRQHandler
-                0x0800064c                SPI3_IRQHandler
-                0x0800064c                DMA1_Stream4_IRQHandler
-                0x0800064c                I2C1_ER_IRQHandler
-                0x0800064c                FMC_IRQHandler
-                0x0800064c                DMA2_Stream6_IRQHandler
-                0x0800064c                SAI1_IRQHandler
-                0x0800064c                DMA1_Stream3_IRQHandler
- *fill*         0x0800064e        0x2 
- .text.std      0x08000650       0x6c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
+                0x080006d0        0x2 ./Startup/startup_stm32f446retx.o
+                0x080006d0                RTC_Alarm_IRQHandler
+                0x080006d0                EXTI2_IRQHandler
+                0x080006d0                TIM8_CC_IRQHandler
+                0x080006d0                SPDIF_Rx_IRQHandler
+                0x080006d0                DebugMon_Handler
+                0x080006d0                SPI4_IRQHandler
+                0x080006d0                TIM1_CC_IRQHandler
+                0x080006d0                QuadSPI_IRQHandler
+                0x080006d0                DMA2_Stream5_IRQHandler
+                0x080006d0                HardFault_Handler
+                0x080006d0                DMA1_Stream5_IRQHandler
+                0x080006d0                PVD_IRQHandler
+                0x080006d0                SDIO_IRQHandler
+                0x080006d0                TAMP_STAMP_IRQHandler
+                0x080006d0                PendSV_Handler
+                0x080006d0                NMI_Handler
+                0x080006d0                CAN2_RX1_IRQHandler
+                0x080006d0                EXTI3_IRQHandler
+                0x080006d0                TIM8_TRG_COM_TIM14_IRQHandler
+                0x080006d0                TIM1_UP_TIM10_IRQHandler
+                0x080006d0                FMPI2C1_error_IRQHandler
+                0x080006d0                TIM8_UP_TIM13_IRQHandler
+                0x080006d0                I2C3_ER_IRQHandler
+                0x080006d0                EXTI0_IRQHandler
+                0x080006d0                I2C2_EV_IRQHandler
+                0x080006d0                DMA1_Stream2_IRQHandler
+                0x080006d0                CAN1_RX0_IRQHandler
+                0x080006d0                OTG_HS_WKUP_IRQHandler
+                0x080006d0                UsageFault_Handler
+                0x080006d0                CAN2_SCE_IRQHandler
+                0x080006d0                DMA2_Stream2_IRQHandler
+                0x080006d0                SPI1_IRQHandler
+                0x080006d0                TIM6_DAC_IRQHandler
+                0x080006d0                TIM1_BRK_TIM9_IRQHandler
+                0x080006d0                DCMI_IRQHandler
+                0x080006d0                CAN2_RX0_IRQHandler
+                0x080006d0                DMA2_Stream3_IRQHandler
+                0x080006d0                FMPI2C1_IRQHandler
+                0x080006d0                SAI2_IRQHandler
+                0x080006d0                USART6_IRQHandler
+                0x080006d0                USART3_IRQHandler
+                0x080006d0                CAN1_RX1_IRQHandler
+                0x080006d0                UART5_IRQHandler
+                0x080006d0                DMA2_Stream0_IRQHandler
+                0x080006d0                TIM4_IRQHandler
+                0x080006d0                I2C1_EV_IRQHandler
+                0x080006d0                HDMI_CEC_IRQHandler
+                0x080006d0                DMA1_Stream6_IRQHandler
+                0x080006d0                DMA1_Stream1_IRQHandler
+                0x080006d0                UART4_IRQHandler
+                0x080006d0                TIM3_IRQHandler
+                0x080006d0                RCC_IRQHandler
+                0x080006d0                TIM8_BRK_TIM12_IRQHandler
+                0x080006d0                Default_Handler
+                0x080006d0                EXTI15_10_IRQHandler
+                0x080006d0                ADC_IRQHandler
+                0x080006d0                DMA1_Stream7_IRQHandler
+                0x080006d0                TIM7_IRQHandler
+                0x080006d0                CAN2_TX_IRQHandler
+                0x080006d0                TIM5_IRQHandler
+                0x080006d0                DMA2_Stream7_IRQHandler
+                0x080006d0                I2C3_EV_IRQHandler
+                0x080006d0                EXTI9_5_IRQHandler
+                0x080006d0                RTC_WKUP_IRQHandler
+                0x080006d0                SPI2_IRQHandler
+                0x080006d0                OTG_HS_EP1_IN_IRQHandler
+                0x080006d0                MemManage_Handler
+                0x080006d0                DMA1_Stream0_IRQHandler
+                0x080006d0                CAN1_TX_IRQHandler
+                0x080006d0                SVC_Handler
+                0x080006d0                EXTI4_IRQHandler
+                0x080006d0                OTG_HS_EP1_OUT_IRQHandler
+                0x080006d0                WWDG_IRQHandler
+                0x080006d0                TIM2_IRQHandler
+                0x080006d0                OTG_FS_WKUP_IRQHandler
+                0x080006d0                TIM1_TRG_COM_TIM11_IRQHandler
+                0x080006d0                OTG_HS_IRQHandler
+                0x080006d0                EXTI1_IRQHandler
+                0x080006d0                USART2_IRQHandler
+                0x080006d0                I2C2_ER_IRQHandler
+                0x080006d0                DMA2_Stream1_IRQHandler
+                0x080006d0                CAN1_SCE_IRQHandler
+                0x080006d0                FLASH_IRQHandler
+                0x080006d0                DMA2_Stream4_IRQHandler
+                0x080006d0                BusFault_Handler
+                0x080006d0                USART1_IRQHandler
+                0x080006d0                OTG_FS_IRQHandler
+                0x080006d0                SPI3_IRQHandler
+                0x080006d0                DMA1_Stream4_IRQHandler
+                0x080006d0                I2C1_ER_IRQHandler
+                0x080006d0                FMC_IRQHandler
+                0x080006d0                DMA2_Stream6_IRQHandler
+                0x080006d0                SAI1_IRQHandler
+                0x080006d0                DMA1_Stream3_IRQHandler
+ *fill*         0x080006d2        0x2 
+ .text.std      0x080006d4       0x6c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
  .text.stdio_exit_handler
-                0x080006bc       0x18 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
+                0x08000740       0x18 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
  .text.cleanup_stdio
-                0x080006d4       0x40 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
+                0x08000758       0x40 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
  .text.global_stdio_init.part.0
-                0x08000714       0x3c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
+                0x08000798       0x3c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
  .text.__sfp_lock_acquire
-                0x08000750        0xc /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
-                0x08000750                __sfp_lock_acquire
+                0x080007d4        0xc /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
+                0x080007d4                __sfp_lock_acquire
  .text.__sfp_lock_release
-                0x0800075c        0xc /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
-                0x0800075c                __sfp_lock_release
- .text.__sinit  0x08000768       0x30 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
-                0x08000768                __sinit
+                0x080007e0        0xc /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
+                0x080007e0                __sfp_lock_release
+ .text.__sinit  0x080007ec       0x30 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
+                0x080007ec                __sinit
  .text._fwalk_sglue
-                0x08000798       0x3c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fwalk.o)
-                0x08000798                _fwalk_sglue
- .text.printf   0x080007d4       0x24 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-printf.o)
-                0x080007d4                printf
-                0x080007d4                iprintf
- .text.__sread  0x080007f8       0x22 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-stdio.o)
-                0x080007f8                __sread
+                0x0800081c       0x3c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fwalk.o)
+                0x0800081c                _fwalk_sglue
+ .text.printf   0x08000858       0x24 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-printf.o)
+                0x08000858                printf
+                0x08000858                iprintf
+ .text.__sread  0x0800087c       0x22 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-stdio.o)
+                0x0800087c                __sread
  .text.__swrite
-                0x0800081a       0x38 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-stdio.o)
-                0x0800081a                __swrite
- .text.__sseek  0x08000852       0x24 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-stdio.o)
-                0x08000852                __sseek
+                0x0800089e       0x38 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-stdio.o)
+                0x0800089e                __swrite
+ .text.__sseek  0x080008d6       0x24 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-stdio.o)
+                0x080008d6                __sseek
  .text.__sclose
-                0x08000876        0x8 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-stdio.o)
-                0x08000876                __sclose
- .text.memset   0x0800087e       0x10 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memset.o)
-                0x0800087e                memset
- *fill*         0x0800088e        0x2 
+                0x080008fa        0x8 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-stdio.o)
+                0x080008fa                __sclose
+ .text.memset   0x08000902       0x10 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memset.o)
+                0x08000902                memset
+ *fill*         0x08000912        0x2 
  .text._close_r
-                0x08000890       0x20 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-closer.o)
-                0x08000890                _close_r
+                0x08000914       0x20 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-closer.o)
+                0x08000914                _close_r
  .text._lseek_r
-                0x080008b0       0x24 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lseekr.o)
-                0x080008b0                _lseek_r
- .text._read_r  0x080008d4       0x24 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-readr.o)
-                0x080008d4                _read_r
+                0x08000934       0x24 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lseekr.o)
+                0x08000934                _lseek_r
+ .text._read_r  0x08000958       0x24 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-readr.o)
+                0x08000958                _read_r
  .text._write_r
-                0x080008f8       0x24 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-writer.o)
-                0x080008f8                _write_r
- .text.__errno  0x0800091c        0xc /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-errno.o)
-                0x0800091c                __errno
+                0x0800097c       0x24 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-writer.o)
+                0x0800097c                _write_r
+ .text.__errno  0x080009a0        0xc /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-errno.o)
+                0x080009a0                __errno
  .text.__libc_init_array
-                0x08000928       0x48 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-init.o)
-                0x08000928                __libc_init_array
+                0x080009ac       0x48 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-init.o)
+                0x080009ac                __libc_init_array
  .text.__retarget_lock_init_recursive
-                0x08000970        0x2 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
-                0x08000970                __retarget_lock_init_recursive
+                0x080009f4        0x2 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
+                0x080009f4                __retarget_lock_init_recursive
  .text.__retarget_lock_acquire_recursive
-                0x08000972        0x2 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
-                0x08000972                __retarget_lock_acquire_recursive
+                0x080009f6        0x2 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
+                0x080009f6                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x08000974        0x2 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
-                0x08000974                __retarget_lock_release_recursive
- *fill*         0x08000976        0x2 
- .text._free_r  0x08000978       0x94 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-freer.o)
-                0x08000978                _free_r
+                0x080009f8        0x2 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
+                0x080009f8                __retarget_lock_release_recursive
+ *fill*         0x080009fa        0x2 
+ .text._free_r  0x080009fc       0x94 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-freer.o)
+                0x080009fc                _free_r
  .text.sbrk_aligned
-                0x08000a0c       0x44 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
+                0x08000a90       0x44 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
  .text._malloc_r
-                0x08000a50      0x100 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
-                0x08000a50                _malloc_r
+                0x08000ad4      0x100 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
+                0x08000ad4                _malloc_r
  .text.__malloc_lock
-                0x08000b50        0xc /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
-                0x08000b50                __malloc_lock
+                0x08000bd4        0xc /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
+                0x08000bd4                __malloc_lock
  .text.__malloc_unlock
-                0x08000b5c        0xc /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
-                0x08000b5c                __malloc_unlock
+                0x08000be0        0xc /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
+                0x08000be0                __malloc_unlock
  .text.__sfputc_r
-                0x08000b68       0x2e /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf.o)
+                0x08000bec       0x2e /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf.o)
  .text.__sfputs_r
-                0x08000b96       0x24 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf.o)
-                0x08000b96                __sfputs_r
- *fill*         0x08000bba        0x2 
+                0x08000c1a       0x24 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf.o)
+                0x08000c1a                __sfputs_r
+ *fill*         0x08000c3e        0x2 
  .text._vfprintf_r
-                0x08000bbc      0x230 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf.o)
-                0x08000bbc                _vfiprintf_r
-                0x08000bbc                _vfprintf_r
+                0x08000c40      0x230 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf.o)
+                0x08000c40                _vfiprintf_r
+                0x08000c40                _vfprintf_r
  .text._printf_common
-                0x08000dec       0xda /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
-                0x08000dec                _printf_common
- *fill*         0x08000ec6        0x2 
+                0x08000e70       0xda /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
+                0x08000e70                _printf_common
+ *fill*         0x08000f4a        0x2 
  .text._printf_i
-                0x08000ec8      0x240 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
-                0x08000ec8                _printf_i
+                0x08000f4c      0x240 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
+                0x08000f4c                _printf_i
  .text.__sflush_r
-                0x08001108      0x108 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fflush.o)
-                0x08001108                __sflush_r
+                0x0800118c      0x108 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fflush.o)
+                0x0800118c                __sflush_r
  .text._fflush_r
-                0x08001210       0x50 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fflush.o)
-                0x08001210                _fflush_r
+                0x08001294       0x50 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fflush.o)
+                0x08001294                _fflush_r
  .text.__swbuf_r
-                0x08001260       0x7c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-wbuf.o)
-                0x08001260                __swbuf_r
+                0x080012e4       0x7c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-wbuf.o)
+                0x080012e4                __swbuf_r
  .text.__swsetup_r
-                0x080012dc       0xac /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-wsetup.o)
-                0x080012dc                __swsetup_r
- .text._sbrk_r  0x08001388       0x20 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
-                0x08001388                _sbrk_r
+                0x08001360       0xac /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-wsetup.o)
+                0x08001360                __swsetup_r
+ .text._sbrk_r  0x0800140c       0x20 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
+                0x0800140c                _sbrk_r
  .text.__swhatbuf_r
-                0x080013a8       0x4c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-makebuf.o)
-                0x080013a8                __swhatbuf_r
+                0x0800142c       0x4c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-makebuf.o)
+                0x0800142c                __swhatbuf_r
  .text.__smakebuf_r
-                0x080013f4       0x78 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-makebuf.o)
-                0x080013f4                __smakebuf_r
+                0x08001478       0x78 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-makebuf.o)
+                0x08001478                __smakebuf_r
  .text._fstat_r
-                0x0800146c       0x24 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fstatr.o)
-                0x0800146c                _fstat_r
+                0x080014f0       0x24 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fstatr.o)
+                0x080014f0                _fstat_r
  .text._isatty_r
-                0x08001490       0x20 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-isattyr.o)
-                0x08001490                _isatty_r
+                0x08001514       0x20 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-isattyr.o)
+                0x08001514                _isatty_r
  *(.glue_7)
- .glue_7        0x080014b0        0x0 linker stubs
+ .glue_7        0x08001534        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x080014b0        0x0 linker stubs
+ .glue_7t       0x08001534        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x080014b0        0x0 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x08001534        0x0 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x080014b0        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x080014b0                _init
- .init          0x080014b4        0x8 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x08001534        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x08001534                _init
+ .init          0x08001538        0x8 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x080014bc        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x080014bc                _fini
- .fini          0x080014c0        0x8 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtn.o
-                0x080014c8                        . = ALIGN (0x4)
-                0x080014c8                        _etext = .
+ .fini          0x08001540        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x08001540                _fini
+ .fini          0x08001544        0x8 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtn.o
+                0x0800154c                        . = ALIGN (0x4)
+                0x0800154c                        _etext = .
 
-.vfp11_veneer   0x080014c8        0x0
- .vfp11_veneer  0x080014c8        0x0 linker stubs
+.vfp11_veneer   0x0800154c        0x0
+ .vfp11_veneer  0x0800154c        0x0 linker stubs
 
-.v4_bx          0x080014c8        0x0
- .v4_bx         0x080014c8        0x0 linker stubs
+.v4_bx          0x0800154c        0x0
+ .v4_bx         0x0800154c        0x0 linker stubs
 
-.iplt           0x080014c8        0x0
- .iplt          0x080014c8        0x0 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x0800154c        0x0
+ .iplt          0x0800154c        0x0 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x080014c8       0x54
-                0x080014c8                        . = ALIGN (0x4)
+.rodata         0x0800154c       0x44
+                0x0800154c                        . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x080014c8       0x21 ./Src/main.o
+ .rodata        0x0800154c        0xf ./Src/main.o
  *(.rodata*)
  .rodata._vfprintf_r.str1.1
-                0x080014e9       0x11 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf.o)
+                0x0800155b       0x11 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf.o)
  .rodata._printf_i.str1.1
-                0x080014fa       0x22 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
-                0x0800151c                        . = ALIGN (0x4)
+                0x0800156c       0x22 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
+                0x08001590                        . = ALIGN (0x4)
+ *fill*         0x0800158e        0x2 
 
-.ARM.extab      0x0800151c        0x0
-                0x0800151c                        . = ALIGN (0x4)
+.ARM.extab      0x08001590        0x0
+                0x08001590                        . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0800151c                        . = ALIGN (0x4)
+                0x08001590                        . = ALIGN (0x4)
 
-.ARM            0x0800151c        0x8
-                0x0800151c                        . = ALIGN (0x4)
-                0x0800151c                        __exidx_start = .
+.ARM            0x08001590        0x8
+                0x08001590                        . = ALIGN (0x4)
+                0x08001590                        __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x0800151c        0x8 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memchr.o)
-                0x08001524                        __exidx_end = .
-                0x08001524                        . = ALIGN (0x4)
+ .ARM.exidx     0x08001590        0x8 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memchr.o)
+                0x08001598                        __exidx_end = .
+                0x08001598                        . = ALIGN (0x4)
 
-.preinit_array  0x08001524        0x0
-                0x08001524                        . = ALIGN (0x4)
-                0x08001524                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x08001598        0x0
+                0x08001598                        . = ALIGN (0x4)
+                0x08001598                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x08001524                        PROVIDE (__preinit_array_end = .)
-                0x08001524                        . = ALIGN (0x4)
+                0x08001598                        PROVIDE (__preinit_array_end = .)
+                0x08001598                        . = ALIGN (0x4)
 
-.init_array     0x08001524        0x4
-                0x08001524                        . = ALIGN (0x4)
-                0x08001524                        PROVIDE (__init_array_start = .)
+.init_array     0x08001598        0x4
+                0x08001598                        . = ALIGN (0x4)
+                0x08001598                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x08001524        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x08001528                        PROVIDE (__init_array_end = .)
-                0x08001528                        . = ALIGN (0x4)
+ .init_array    0x08001598        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x0800159c                        PROVIDE (__init_array_end = .)
+                0x0800159c                        . = ALIGN (0x4)
 
-.fini_array     0x08001528        0x4
-                0x08001528                        . = ALIGN (0x4)
+.fini_array     0x0800159c        0x4
+                0x0800159c                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08001528        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x0800159c        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x0800152c                        . = ALIGN (0x4)
-                0x0800152c                        _sidata = LOADADDR (.data)
+                0x080015a0                        . = ALIGN (0x4)
+                0x080015a0                        _sidata = LOADADDR (.data)
 
-.rel.dyn        0x0800152c        0x0
- .rel.iplt      0x0800152c        0x0 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x080015a0        0x0
+ .rel.iplt      0x080015a0        0x0 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.data           0x20000000       0x5c load address 0x0800152c
+.data           0x20000000       0x60 load address 0x080015a0
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
  *(.data*)
- .data.__sglue  0x20000000        0xc /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
-                0x20000000                __sglue
+ .data.tick_freq
+                0x20000000        0x4 ./Src/timebase.o
+                0x20000000                tick_freq
+ .data.__sglue  0x20000004        0xc /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
+                0x20000004                __sglue
  .data._impure_ptr
-                0x2000000c        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-impure.o)
-                0x2000000c                _impure_ptr
+                0x20000010        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-impure.o)
+                0x20000010                _impure_ptr
  .data._impure_data
-                0x20000010       0x4c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-impure.o)
-                0x20000010                _impure_data
+                0x20000014       0x4c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-impure.o)
+                0x20000014                _impure_data
  *(.RamFunc)
  *(.RamFunc*)
-                0x2000005c                        . = ALIGN (0x4)
-                0x2000005c                        _edata = .
+                0x20000060                        . = ALIGN (0x4)
+                0x20000060                        _edata = .
 
-.igot.plt       0x2000005c        0x0 load address 0x08001588
- .igot.plt      0x2000005c        0x0 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x2000005c                        . = ALIGN (0x4)
+.igot.plt       0x20000060        0x0 load address 0x08001600
+ .igot.plt      0x20000060        0x0 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x20000060                        . = ALIGN (0x4)
 
-.bss            0x2000005c      0x16c load address 0x08001588
-                0x2000005c                        _sbss = .
-                0x2000005c                        __bss_start__ = _sbss
+.bss            0x20000060      0x174 load address 0x08001600
+                0x20000060                        _sbss = .
+                0x20000060                        __bss_start__ = _sbss
  *(.bss)
- .bss           0x2000005c       0x1c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .bss           0x20000060       0x1c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.bss*)
  .bss.__sbrk_heap_end
-                0x20000078        0x4 ./Src/sysmem.o
- .bss.__sf      0x2000007c      0x138 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
-                0x2000007c                __sf
+                0x2000007c        0x4 ./Src/sysmem.o
+ .bss.g_curr_tick
+                0x20000080        0x4 ./Src/timebase.o
+                0x20000080                g_curr_tick
+ .bss.g_curr_tick_p
+                0x20000084        0x4 ./Src/timebase.o
+                0x20000084                g_curr_tick_p
+ .bss.__sf      0x20000088      0x138 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
+                0x20000088                __sf
  .bss.__stdio_exit_handler
-                0x200001b4        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
-                0x200001b4                __stdio_exit_handler
- .bss.errno     0x200001b8        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reent.o)
-                0x200001b8                errno
+                0x200001c0        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
+                0x200001c0                __stdio_exit_handler
+ .bss.errno     0x200001c4        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reent.o)
+                0x200001c4                errno
  .bss.__lock___malloc_recursive_mutex
-                0x200001bc        0x1 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
-                0x200001bc                __lock___malloc_recursive_mutex
+                0x200001c8        0x1 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
+                0x200001c8                __lock___malloc_recursive_mutex
  .bss.__lock___sfp_recursive_mutex
-                0x200001bd        0x1 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
-                0x200001bd                __lock___sfp_recursive_mutex
- *fill*         0x200001be        0x2 
+                0x200001c9        0x1 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
+                0x200001c9                __lock___sfp_recursive_mutex
+ *fill*         0x200001ca        0x2 
  .bss.__malloc_sbrk_start
-                0x200001c0        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
-                0x200001c0                __malloc_sbrk_start
+                0x200001cc        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
+                0x200001cc                __malloc_sbrk_start
  .bss.__malloc_free_list
-                0x200001c4        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
-                0x200001c4                __malloc_free_list
+                0x200001d0        0x4 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
+                0x200001d0                __malloc_free_list
  *(COMMON)
-                0x200001c8                        . = ALIGN (0x4)
-                0x200001c8                        _ebss = .
-                0x200001c8                        __bss_end__ = _ebss
+                0x200001d4                        . = ALIGN (0x4)
+                0x200001d4                        _ebss = .
+                0x200001d4                        __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x200001c8      0x600 load address 0x08001588
-                0x200001c8                        . = ALIGN (0x8)
+                0x200001d4      0x604 load address 0x08001600
+                0x200001d8                        . = ALIGN (0x8)
+ *fill*         0x200001d4        0x4 
                 [!provide]                        PROVIDE (end = .)
-                0x200001c8                        PROVIDE (_end = .)
-                0x200003c8                        . = (. + _Min_Heap_Size)
- *fill*         0x200001c8      0x200 
-                0x200007c8                        . = (. + _Min_Stack_Size)
- *fill*         0x200003c8      0x400 
-                0x200007c8                        . = ALIGN (0x8)
+                0x200001d8                        PROVIDE (_end = .)
+                0x200003d8                        . = (. + _Min_Heap_Size)
+ *fill*         0x200001d8      0x200 
+                0x200007d8                        . = (. + _Min_Stack_Size)
+ *fill*         0x200003d8      0x400 
+                0x200007d8                        . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)
@@ -1016,88 +1070,92 @@ LOAD /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.
  .ARM.attributes
                 0x000000f2       0x34 ./Src/sysmem.o
  .ARM.attributes
-                0x00000126       0x34 ./Src/uart.o
+                0x00000126       0x34 ./Src/timebase.o
  .ARM.attributes
-                0x0000015a       0x21 ./Startup/startup_stm32f446retx.o
+                0x0000015a       0x34 ./Src/uart.o
  .ARM.attributes
-                0x0000017b       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
+                0x0000018e       0x21 ./Startup/startup_stm32f446retx.o
  .ARM.attributes
-                0x000001af       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fwalk.o)
+                0x000001af       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
  .ARM.attributes
-                0x000001e3       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-printf.o)
+                0x000001e3       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fwalk.o)
  .ARM.attributes
-                0x00000217       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-stdio.o)
+                0x00000217       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-printf.o)
  .ARM.attributes
-                0x0000024b       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memset.o)
+                0x0000024b       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-stdio.o)
  .ARM.attributes
-                0x0000027f       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-closer.o)
+                0x0000027f       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memset.o)
  .ARM.attributes
-                0x000002b3       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reent.o)
+                0x000002b3       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-closer.o)
  .ARM.attributes
-                0x000002e7       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-impure.o)
+                0x000002e7       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reent.o)
  .ARM.attributes
-                0x0000031b       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lseekr.o)
+                0x0000031b       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-impure.o)
  .ARM.attributes
-                0x0000034f       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-readr.o)
+                0x0000034f       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lseekr.o)
  .ARM.attributes
-                0x00000383       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-writer.o)
+                0x00000383       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-readr.o)
  .ARM.attributes
-                0x000003b7       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-errno.o)
+                0x000003b7       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-writer.o)
  .ARM.attributes
-                0x000003eb       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-init.o)
+                0x000003eb       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-errno.o)
  .ARM.attributes
-                0x0000041f       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
+                0x0000041f       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-init.o)
  .ARM.attributes
-                0x00000453       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-freer.o)
+                0x00000453       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
  .ARM.attributes
-                0x00000487       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
+                0x00000487       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-freer.o)
  .ARM.attributes
-                0x000004bb       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
+                0x000004bb       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
  .ARM.attributes
-                0x000004ef       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf.o)
+                0x000004ef       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
  .ARM.attributes
-                0x00000523       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
+                0x00000523       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf.o)
  .ARM.attributes
-                0x00000557       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fflush.o)
+                0x00000557       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
  .ARM.attributes
-                0x0000058b       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-wbuf.o)
+                0x0000058b       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fflush.o)
  .ARM.attributes
-                0x000005bf       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-wsetup.o)
+                0x000005bf       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-wbuf.o)
  .ARM.attributes
-                0x000005f3       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
+                0x000005f3       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-wsetup.o)
  .ARM.attributes
-                0x00000627       0x1c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memchr.o)
+                0x00000627       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
  .ARM.attributes
-                0x00000643       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-makebuf.o)
+                0x0000065b       0x1c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memchr.o)
  .ARM.attributes
-                0x00000677       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fstatr.o)
+                0x00000677       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-makebuf.o)
  .ARM.attributes
-                0x000006ab       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-isattyr.o)
+                0x000006ab       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fstatr.o)
  .ARM.attributes
-                0x000006df       0x22 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtn.o
+                0x000006df       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-isattyr.o)
+ .ARM.attributes
+                0x00000713       0x22 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtn.o
 OUTPUT(UART_Driver.elf elf32-littlearm)
 LOAD linker stubs
 LOAD /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a
 LOAD /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a
 LOAD /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/libgcc.a
 
-.debug_info     0x00000000     0x106b
+.debug_info     0x00000000     0x123a
  .debug_info    0x00000000      0x30c ./Src/led.o
- .debug_info    0x0000030c      0x110 ./Src/main.o
- .debug_info    0x0000041c      0x6a3 ./Src/syscalls.o
- .debug_info    0x00000abf      0x168 ./Src/sysmem.o
- .debug_info    0x00000c27      0x414 ./Src/uart.o
- .debug_info    0x0000103b       0x30 ./Startup/startup_stm32f446retx.o
+ .debug_info    0x0000030c      0x104 ./Src/main.o
+ .debug_info    0x00000410      0x6a3 ./Src/syscalls.o
+ .debug_info    0x00000ab3      0x168 ./Src/sysmem.o
+ .debug_info    0x00000c1b      0x1db ./Src/timebase.o
+ .debug_info    0x00000df6      0x414 ./Src/uart.o
+ .debug_info    0x0000120a       0x30 ./Startup/startup_stm32f446retx.o
 
-.debug_abbrev   0x00000000      0x544
+.debug_abbrev   0x00000000      0x6c1
  .debug_abbrev  0x00000000       0xb8 ./Src/led.o
- .debug_abbrev  0x000000b8       0xb4 ./Src/main.o
- .debug_abbrev  0x0000016c      0x1b6 ./Src/syscalls.o
- .debug_abbrev  0x00000322       0xbc ./Src/sysmem.o
- .debug_abbrev  0x000003de      0x142 ./Src/uart.o
- .debug_abbrev  0x00000520       0x24 ./Startup/startup_stm32f446retx.o
+ .debug_abbrev  0x000000b8       0xc3 ./Src/main.o
+ .debug_abbrev  0x0000017b      0x1b6 ./Src/syscalls.o
+ .debug_abbrev  0x00000331       0xbc ./Src/sysmem.o
+ .debug_abbrev  0x000003ed      0x16e ./Src/timebase.o
+ .debug_abbrev  0x0000055b      0x142 ./Src/uart.o
+ .debug_abbrev  0x0000069d       0x24 ./Startup/startup_stm32f446retx.o
 
-.debug_aranges  0x00000000      0x180
+.debug_aranges  0x00000000      0x1c0
  .debug_aranges
                 0x00000000       0x30 ./Src/led.o
  .debug_aranges
@@ -1107,12 +1165,14 @@ LOAD /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.
  .debug_aranges
                 0x000000f8       0x20 ./Src/sysmem.o
  .debug_aranges
-                0x00000118       0x40 ./Src/uart.o
+                0x00000118       0x40 ./Src/timebase.o
  .debug_aranges
-                0x00000158       0x28 ./Startup/startup_stm32f446retx.o
+                0x00000158       0x40 ./Src/uart.o
+ .debug_aranges
+                0x00000198       0x28 ./Startup/startup_stm32f446retx.o
 
 .debug_rnglists
-                0x00000000      0x103
+                0x00000000      0x12e
  .debug_rnglists
                 0x00000000       0x1f ./Src/led.o
  .debug_rnglists
@@ -1122,11 +1182,13 @@ LOAD /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.
  .debug_rnglists
                 0x000000ab       0x13 ./Src/sysmem.o
  .debug_rnglists
-                0x000000be       0x2c ./Src/uart.o
+                0x000000be       0x2b ./Src/timebase.o
  .debug_rnglists
-                0x000000ea       0x19 ./Startup/startup_stm32f446retx.o
+                0x000000e9       0x2c ./Src/uart.o
+ .debug_rnglists
+                0x00000115       0x19 ./Startup/startup_stm32f446retx.o
 
-.debug_macro    0x00000000    0x1a995
+.debug_macro    0x00000000    0x1aa8c
  .debug_macro   0x00000000       0xd5 ./Src/led.o
  .debug_macro   0x000000d5      0xaa2 ./Src/led.o
  .debug_macro   0x00000b77       0x28 ./Src/led.o
@@ -1142,81 +1204,85 @@ LOAD /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.
  .debug_macro   0x00001125     0x1011 ./Src/led.o
  .debug_macro   0x00002136      0x11f ./Src/led.o
  .debug_macro   0x00002255    0x16749 ./Src/led.o
- .debug_macro   0x0001899e      0x1b0 ./Src/main.o
- .debug_macro   0x00018b4e       0x61 ./Src/main.o
- .debug_macro   0x00018baf       0x2a ./Src/main.o
- .debug_macro   0x00018bd9       0x43 ./Src/main.o
- .debug_macro   0x00018c1c       0x34 ./Src/main.o
- .debug_macro   0x00018c50       0x16 ./Src/main.o
- .debug_macro   0x00018c66       0x9e ./Src/main.o
- .debug_macro   0x00018d04      0x369 ./Src/main.o
- .debug_macro   0x0001906d      0x10b ./Src/main.o
- .debug_macro   0x00019178       0x10 ./Src/main.o
- .debug_macro   0x00019188       0x16 ./Src/main.o
- .debug_macro   0x0001919e       0x43 ./Src/main.o
- .debug_macro   0x000191e1       0x34 ./Src/main.o
- .debug_macro   0x00019215       0x10 ./Src/main.o
- .debug_macro   0x00019225       0x58 ./Src/main.o
- .debug_macro   0x0001927d       0x8e ./Src/main.o
- .debug_macro   0x0001930b       0x1c ./Src/main.o
- .debug_macro   0x00019327      0x177 ./Src/main.o
- .debug_macro   0x0001949e       0x16 ./Src/main.o
- .debug_macro   0x000194b4       0x16 ./Src/main.o
- .debug_macro   0x000194ca      0x146 ./Src/main.o
- .debug_macro   0x00019610      0x274 ./Src/syscalls.o
- .debug_macro   0x00019884       0x5b ./Src/syscalls.o
- .debug_macro   0x000198df       0x94 ./Src/syscalls.o
- .debug_macro   0x00019973       0x57 ./Src/syscalls.o
- .debug_macro   0x000199ca      0x189 ./Src/syscalls.o
- .debug_macro   0x00019b53       0x10 ./Src/syscalls.o
- .debug_macro   0x00019b63       0x35 ./Src/syscalls.o
- .debug_macro   0x00019b98       0x10 ./Src/syscalls.o
- .debug_macro   0x00019ba8       0x10 ./Src/syscalls.o
- .debug_macro   0x00019bb8       0x10 ./Src/syscalls.o
- .debug_macro   0x00019bc8       0x1c ./Src/syscalls.o
- .debug_macro   0x00019be4       0x52 ./Src/syscalls.o
- .debug_macro   0x00019c36       0x22 ./Src/syscalls.o
- .debug_macro   0x00019c58       0x10 ./Src/syscalls.o
- .debug_macro   0x00019c68       0x52 ./Src/syscalls.o
- .debug_macro   0x00019cba       0xcf ./Src/syscalls.o
- .debug_macro   0x00019d89       0x1c ./Src/syscalls.o
- .debug_macro   0x00019da5       0x3d ./Src/syscalls.o
- .debug_macro   0x00019de2       0x35 ./Src/syscalls.o
- .debug_macro   0x00019e17      0x12c ./Src/syscalls.o
- .debug_macro   0x00019f43       0x16 ./Src/syscalls.o
- .debug_macro   0x00019f59       0x16 ./Src/syscalls.o
- .debug_macro   0x00019f6f       0x29 ./Src/syscalls.o
- .debug_macro   0x00019f98       0x10 ./Src/syscalls.o
- .debug_macro   0x00019fa8      0x242 ./Src/syscalls.o
- .debug_macro   0x0001a1ea       0x1c ./Src/syscalls.o
- .debug_macro   0x0001a206       0x10 ./Src/syscalls.o
- .debug_macro   0x0001a216      0x18a ./Src/syscalls.o
- .debug_macro   0x0001a3a0       0x16 ./Src/syscalls.o
- .debug_macro   0x0001a3b6       0xce ./Src/syscalls.o
- .debug_macro   0x0001a484       0xff ./Src/sysmem.o
- .debug_macro   0x0001a583      0x23c ./Src/sysmem.o
- .debug_macro   0x0001a7bf      0x1d6 ./Src/uart.o
+ .debug_macro   0x0001899e      0x1ba ./Src/main.o
+ .debug_macro   0x00018b58       0x61 ./Src/main.o
+ .debug_macro   0x00018bb9       0x2a ./Src/main.o
+ .debug_macro   0x00018be3       0x43 ./Src/main.o
+ .debug_macro   0x00018c26       0x34 ./Src/main.o
+ .debug_macro   0x00018c5a       0x16 ./Src/main.o
+ .debug_macro   0x00018c70       0x9e ./Src/main.o
+ .debug_macro   0x00018d0e      0x369 ./Src/main.o
+ .debug_macro   0x00019077      0x10b ./Src/main.o
+ .debug_macro   0x00019182       0x10 ./Src/main.o
+ .debug_macro   0x00019192       0x16 ./Src/main.o
+ .debug_macro   0x000191a8       0x43 ./Src/main.o
+ .debug_macro   0x000191eb       0x34 ./Src/main.o
+ .debug_macro   0x0001921f       0x10 ./Src/main.o
+ .debug_macro   0x0001922f       0x58 ./Src/main.o
+ .debug_macro   0x00019287       0x8e ./Src/main.o
+ .debug_macro   0x00019315       0x1c ./Src/main.o
+ .debug_macro   0x00019331      0x177 ./Src/main.o
+ .debug_macro   0x000194a8       0x16 ./Src/main.o
+ .debug_macro   0x000194be       0x16 ./Src/main.o
+ .debug_macro   0x000194d4      0x146 ./Src/main.o
+ .debug_macro   0x0001961a      0x274 ./Src/syscalls.o
+ .debug_macro   0x0001988e       0x5b ./Src/syscalls.o
+ .debug_macro   0x000198e9       0x94 ./Src/syscalls.o
+ .debug_macro   0x0001997d       0x57 ./Src/syscalls.o
+ .debug_macro   0x000199d4      0x189 ./Src/syscalls.o
+ .debug_macro   0x00019b5d       0x10 ./Src/syscalls.o
+ .debug_macro   0x00019b6d       0x35 ./Src/syscalls.o
+ .debug_macro   0x00019ba2       0x10 ./Src/syscalls.o
+ .debug_macro   0x00019bb2       0x10 ./Src/syscalls.o
+ .debug_macro   0x00019bc2       0x10 ./Src/syscalls.o
+ .debug_macro   0x00019bd2       0x1c ./Src/syscalls.o
+ .debug_macro   0x00019bee       0x52 ./Src/syscalls.o
+ .debug_macro   0x00019c40       0x22 ./Src/syscalls.o
+ .debug_macro   0x00019c62       0x10 ./Src/syscalls.o
+ .debug_macro   0x00019c72       0x52 ./Src/syscalls.o
+ .debug_macro   0x00019cc4       0xcf ./Src/syscalls.o
+ .debug_macro   0x00019d93       0x1c ./Src/syscalls.o
+ .debug_macro   0x00019daf       0x3d ./Src/syscalls.o
+ .debug_macro   0x00019dec       0x35 ./Src/syscalls.o
+ .debug_macro   0x00019e21      0x12c ./Src/syscalls.o
+ .debug_macro   0x00019f4d       0x16 ./Src/syscalls.o
+ .debug_macro   0x00019f63       0x16 ./Src/syscalls.o
+ .debug_macro   0x00019f79       0x29 ./Src/syscalls.o
+ .debug_macro   0x00019fa2       0x10 ./Src/syscalls.o
+ .debug_macro   0x00019fb2      0x242 ./Src/syscalls.o
+ .debug_macro   0x0001a1f4       0x1c ./Src/syscalls.o
+ .debug_macro   0x0001a210       0x10 ./Src/syscalls.o
+ .debug_macro   0x0001a220      0x18a ./Src/syscalls.o
+ .debug_macro   0x0001a3aa       0x16 ./Src/syscalls.o
+ .debug_macro   0x0001a3c0       0xce ./Src/syscalls.o
+ .debug_macro   0x0001a48e       0xff ./Src/sysmem.o
+ .debug_macro   0x0001a58d      0x23c ./Src/sysmem.o
+ .debug_macro   0x0001a7c9       0xed ./Src/timebase.o
+ .debug_macro   0x0001a8b6      0x1d6 ./Src/uart.o
 
-.debug_line     0x00000000     0x2027
+.debug_line     0x00000000     0x25c0
  .debug_line    0x00000000      0x50f ./Src/led.o
- .debug_line    0x0000050f      0x66e ./Src/main.o
- .debug_line    0x00000b7d      0x828 ./Src/syscalls.o
- .debug_line    0x000013a5      0x4f9 ./Src/sysmem.o
- .debug_line    0x0000189e      0x70e ./Src/uart.o
- .debug_line    0x00001fac       0x7b ./Startup/startup_stm32f446retx.o
+ .debug_line    0x0000050f      0x660 ./Src/main.o
+ .debug_line    0x00000b6f      0x828 ./Src/syscalls.o
+ .debug_line    0x00001397      0x4f9 ./Src/sysmem.o
+ .debug_line    0x00001890      0x5a7 ./Src/timebase.o
+ .debug_line    0x00001e37      0x70e ./Src/uart.o
+ .debug_line    0x00002545       0x7b ./Startup/startup_stm32f446retx.o
 
-.debug_str      0x00000000    0x9059e
+.debug_str      0x00000000    0x906cb
  .debug_str     0x00000000    0x8a909 ./Src/led.o
                               0x8aa8b (size before relaxing)
- .debug_str     0x0008a909     0x3a19 ./Src/main.o
-                              0x8e39d (size before relaxing)
- .debug_str     0x0008e322     0x20be ./Src/syscalls.o
+ .debug_str     0x0008a909     0x3a3d ./Src/main.o
+                              0x8e3c6 (size before relaxing)
+ .debug_str     0x0008e346     0x20be ./Src/syscalls.o
                                0x9886 (size before relaxing)
- .debug_str     0x000903e0       0x70 ./Src/sysmem.o
+ .debug_str     0x00090404       0x70 ./Src/sysmem.o
                                0x609e (size before relaxing)
- .debug_str     0x00090450       0xd7 ./Src/uart.o
+ .debug_str     0x00090474      0x109 ./Src/timebase.o
+                              0x8aa1a (size before relaxing)
+ .debug_str     0x0009057d       0xd7 ./Src/uart.o
                               0x8e5c4 (size before relaxing)
- .debug_str     0x00090527       0x77 ./Startup/startup_stm32f446retx.o
+ .debug_str     0x00090654       0x77 ./Startup/startup_stm32f446retx.o
 
 .comment        0x00000000       0x43
  .comment       0x00000000       0x43 ./Src/led.o
@@ -1224,39 +1290,41 @@ LOAD /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.
  .comment       0x00000043       0x44 ./Src/main.o
  .comment       0x00000043       0x44 ./Src/syscalls.o
  .comment       0x00000043       0x44 ./Src/sysmem.o
+ .comment       0x00000043       0x44 ./Src/timebase.o
  .comment       0x00000043       0x44 ./Src/uart.o
 
-.debug_frame    0x00000000      0xc1c
+.debug_frame    0x00000000      0xccc
  .debug_frame   0x00000000       0x70 ./Src/led.o
  .debug_frame   0x00000070       0x30 ./Src/main.o
  .debug_frame   0x000000a0      0x2ac ./Src/syscalls.o
  .debug_frame   0x0000034c       0x34 ./Src/sysmem.o
- .debug_frame   0x00000380       0xc8 ./Src/uart.o
- .debug_frame   0x00000448      0x144 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
- .debug_frame   0x0000058c       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fwalk.o)
- .debug_frame   0x000005c0       0x6c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-printf.o)
- .debug_frame   0x0000062c       0x88 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-stdio.o)
- .debug_frame   0x000006b4       0x20 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memset.o)
- .debug_frame   0x000006d4       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-closer.o)
- .debug_frame   0x00000700       0x38 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reent.o)
- .debug_frame   0x00000738       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lseekr.o)
- .debug_frame   0x00000764       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-readr.o)
- .debug_frame   0x00000790       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-writer.o)
- .debug_frame   0x000007bc       0x20 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-errno.o)
- .debug_frame   0x000007dc       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-init.o)
- .debug_frame   0x00000808       0xb0 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
- .debug_frame   0x000008b8       0x38 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-freer.o)
- .debug_frame   0x000008f0       0x50 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
- .debug_frame   0x00000940       0x30 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
- .debug_frame   0x00000970       0xa8 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf.o)
- .debug_frame   0x00000a18       0x60 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
- .debug_frame   0x00000a78       0x5c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fflush.o)
- .debug_frame   0x00000ad4       0x40 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-wbuf.o)
- .debug_frame   0x00000b14       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-wsetup.o)
- .debug_frame   0x00000b40       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
- .debug_frame   0x00000b6c       0x58 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-makebuf.o)
- .debug_frame   0x00000bc4       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fstatr.o)
- .debug_frame   0x00000bf0       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-isattyr.o)
+ .debug_frame   0x00000380       0xb0 ./Src/timebase.o
+ .debug_frame   0x00000430       0xc8 ./Src/uart.o
+ .debug_frame   0x000004f8      0x144 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
+ .debug_frame   0x0000063c       0x34 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fwalk.o)
+ .debug_frame   0x00000670       0x6c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-printf.o)
+ .debug_frame   0x000006dc       0x88 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-stdio.o)
+ .debug_frame   0x00000764       0x20 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memset.o)
+ .debug_frame   0x00000784       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-closer.o)
+ .debug_frame   0x000007b0       0x38 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reent.o)
+ .debug_frame   0x000007e8       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lseekr.o)
+ .debug_frame   0x00000814       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-readr.o)
+ .debug_frame   0x00000840       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-writer.o)
+ .debug_frame   0x0000086c       0x20 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-errno.o)
+ .debug_frame   0x0000088c       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-init.o)
+ .debug_frame   0x000008b8       0xb0 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
+ .debug_frame   0x00000968       0x38 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-freer.o)
+ .debug_frame   0x000009a0       0x50 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
+ .debug_frame   0x000009f0       0x30 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
+ .debug_frame   0x00000a20       0xa8 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf.o)
+ .debug_frame   0x00000ac8       0x60 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
+ .debug_frame   0x00000b28       0x5c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fflush.o)
+ .debug_frame   0x00000b84       0x40 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-wbuf.o)
+ .debug_frame   0x00000bc4       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-wsetup.o)
+ .debug_frame   0x00000bf0       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
+ .debug_frame   0x00000c1c       0x58 /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-makebuf.o)
+ .debug_frame   0x00000c74       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-fstatr.o)
+ .debug_frame   0x00000ca0       0x2c /home/hollowknight/st/stm32cubeide_1.16.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.200.202406132123/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-isattyr.o)
 
 .debug_line_str
                 0x00000000       0x5b
