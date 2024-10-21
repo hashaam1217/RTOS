@@ -1,0 +1,4 @@
+../Src/timebase.c:17:10:get_tick	1
+../Src/timebase.c:26:6:delay	3
+../Src/timebase.c:39:6:tick_increment	1
+../Src/timebase.c:45:6:timebase_init	1

@@ -1,212 +1,191 @@
-22:40:53 **** Incremental Build of configuration Debug for project UART_Driver ****
+08:31:03 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
 make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Src/uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/uart.d" -MT"Src/uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/uart.o"
-arm-none-eabi-gcc -o "UART_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/UART_Driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: UART_Driver.elf
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f446retx.d" -MT"Startup/startup_stm32f446retx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Round_Robin_Scheduler.elf
  
-arm-none-eabi-size  UART_Driver.elf 
-arm-none-eabi-objdump -h -S UART_Driver.elf  > "UART_Driver.list"
+arm-none-eabi-size  Round_Robin_Scheduler.elf 
+arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
    text	   data	    bss	    dec	    hex	filename
-   5396	     92	   1900	   7388	   1cdc	UART_Driver.elf
+   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
 Finished building: default.size.stdout
  
-Finished building: UART_Driver.list
+Finished building: Round_Robin_Scheduler.list
  
-22:41:09 **** Incremental Build of configuration Debug for project UART_Driver ****
+08:31:13 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
 make -j12 all 
-arm-none-eabi-size  UART_Driver.elf 
+arm-none-eabi-size  Round_Robin_Scheduler.elf 
    text	   data	    bss	    dec	    hex	filename
-   5396	     92	   1900	   7388	   1cdc	UART_Driver.elf
+   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
 Finished building: default.size.stdout
  
-22:41:39 **** Incremental Build of configuration Debug for project UART_Driver ****
+08:31:50 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
 make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "UART_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/UART_Driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: UART_Driver.elf
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Round_Robin_Scheduler.elf
  
-arm-none-eabi-size  UART_Driver.elf 
-arm-none-eabi-objdump -h -S UART_Driver.elf  > "UART_Driver.list"
+arm-none-eabi-size  Round_Robin_Scheduler.elf 
+arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
    text	   data	    bss	    dec	    hex	filename
-   5396	     92	   1900	   7388	   1cdc	UART_Driver.elf
+   6324	     92	   3148	   9564	   255c	Round_Robin_Scheduler.elf
 Finished building: default.size.stdout
  
-Finished building: UART_Driver.list
+Finished building: Round_Robin_Scheduler.list
  
-22:42:52 **** Incremental Build of configuration Debug for project UART_Driver ****
+08:32:26 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
 make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "UART_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/UART_Driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: UART_Driver.elf
- 
-arm-none-eabi-size  UART_Driver.elf 
-arm-none-eabi-objdump -h -S UART_Driver.elf  > "UART_Driver.list"
-   text	   data	    bss	    dec	    hex	filename
-   5408	     92	   1900	   7400	   1ce8	UART_Driver.elf
-Finished building: default.size.stdout
- 
-Finished building: UART_Driver.list
- 
-22:46:34 **** Incremental Build of configuration Debug for project UART_Driver ****
-make -j12 all 
-arm-none-eabi-size  UART_Driver.elf 
-   text	   data	    bss	    dec	    hex	filename
-   5408	     92	   1900	   7400	   1ce8	UART_Driver.elf
-Finished building: default.size.stdout
- 
-22:46:53 **** Incremental Build of configuration Debug for project UART_Driver ****
-make -j12 all 
-arm-none-eabi-size  UART_Driver.elf 
-   text	   data	    bss	    dec	    hex	filename
-   5408	     92	   1900	   7400	   1ce8	UART_Driver.elf
-Finished building: default.size.stdout
- 
-22:47:11 **** Incremental Build of configuration Debug for project UART_Driver ****
-make -j12 all 
-arm-none-eabi-size  UART_Driver.elf 
-   text	   data	    bss	    dec	    hex	filename
-   5408	     92	   1900	   7400	   1ce8	UART_Driver.elf
-Finished building: default.size.stdout
- 
-22:47:42 **** Incremental Build of configuration Debug for project UART_Driver ****
-make -j12 all 
-arm-none-eabi-size  UART_Driver.elf 
-   text	   data	    bss	    dec	    hex	filename
-   5408	     92	   1900	   7400	   1ce8	UART_Driver.elf
-Finished building: default.size.stdout
- 
-00:36:49 **** Incremental Build of configuration Debug for project UART_Driver ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/led.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/led.d" -MT"Src/led.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/led.o"
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
-arm-none-eabi-gcc "../Src/timebase.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/timebase.d" -MT"Src/timebase.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/timebase.o"
-arm-none-eabi-gcc "../Src/uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/uart.d" -MT"Src/uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/uart.o"
-../Src/timebase.c: In function 'delay':
-../Src/timebase.c:20:26: warning: implicit declaration of function 'get_tick' [-Wimplicit-function-declaration]
-   20 |     uint32_t tickstart = get_tick();
-      |                          ^~~~~~~~
-../Src/timebase.c: At top level:
-../Src/timebase.c:35:10: error: conflicting types for 'get_tick'; have 'uint32_t(void)' {aka 'long unsigned int(void)'}
-   35 | uint32_t get_tick(void)
-      |          ^~~~~~~~
-../Src/timebase.c:20:26: note: previous implicit declaration of 'get_tick' with type 'int()'
-   20 |     uint32_t tickstart = get_tick();
-      |                          ^~~~~~~~
-../Src/timebase.c: In function 'timebase_init':
-../Src/timebase.c:50:12: error: 'SysTick_Type' has no member named 'CSR'
-   50 |     SysTick->CSR |= CSR_CS;
-      |            ^~
-../Src/timebase.c:52:12: error: 'SysTick_Type' has no member named 'CSR'
-   52 |     SysTick->CSR |= CSR_TIE;
-      |            ^~
-../Src/timebase.c:54:12: error: 'SysTick_Type' has no member named 'CSR'
-   54 |     SysTick->CSR |= CSR_E;
-      |            ^~
-../Src/timebase.c: At top level:
-../Src/timebase.c:60:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-   60 | {
-      | ^
-make: *** [Src/subdir.mk:34: Src/timebase.o] Error 1
-make: *** Waiting for unfinished jobs....
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'task0':
+../Src/main.c:27:17: error: 'a' undeclared (first use in this function)
+   27 |                 a++;
+      |                 ^
+../Src/main.c:27:17: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:37: Src/main.o] Error 1
 "make -j12 all" terminated with exit code 2. Build might be incomplete.
-00:37:28 **** Incremental Build of configuration Debug for project UART_Driver ****
+08:32:34 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
 make -j12 all 
-arm-none-eabi-gcc "../Src/timebase.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/timebase.d" -MT"Src/timebase.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/timebase.o"
-../Src/timebase.c: In function 'delay':
-../Src/timebase.c:20:26: warning: implicit declaration of function 'get_tick' [-Wimplicit-function-declaration]
-   20 |     uint32_t tickstart = get_tick();
-      |                          ^~~~~~~~
-../Src/timebase.c: At top level:
-../Src/timebase.c:35:10: error: conflicting types for 'get_tick'; have 'uint32_t(void)' {aka 'long unsigned int(void)'}
-   35 | uint32_t get_tick(void)
-      |          ^~~~~~~~
-../Src/timebase.c:20:26: note: previous implicit declaration of 'get_tick' with type 'int()'
-   20 |     uint32_t tickstart = get_tick();
-      |                          ^~~~~~~~
-../Src/timebase.c: In function 'timebase_init':
-../Src/timebase.c:50:12: error: 'SysTick_Type' has no member named 'CSR'
-   50 |     SysTick->CSR |= CSR_CS;
-      |            ^~
-../Src/timebase.c:52:12: error: 'SysTick_Type' has no member named 'CSR'
-   52 |     SysTick->CSR |= CSR_TIE;
-      |            ^~
-../Src/timebase.c:54:12: error: 'SysTick_Type' has no member named 'CSR'
-   54 |     SysTick->CSR |= CSR_E;
-      |            ^~
-make: *** [Src/subdir.mk:34: Src/timebase.o] Error 1
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'task0':
+../Src/main.c:27:17: error: 'a' undeclared (first use in this function)
+   27 |                 a++;
+      |                 ^
+../Src/main.c:27:17: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:37: Src/main.o] Error 1
 "make -j12 all" terminated with exit code 2. Build might be incomplete.
-00:37:53 **** Incremental Build of configuration Debug for project UART_Driver ****
+08:32:42 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
 make -j12 all 
-arm-none-eabi-gcc "../Src/timebase.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/timebase.d" -MT"Src/timebase.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/timebase.o"
-../Src/timebase.c: In function 'delay':
-../Src/timebase.c:20:26: warning: implicit declaration of function 'get_tick' [-Wimplicit-function-declaration]
-   20 |     uint32_t tickstart = get_tick();
-      |                          ^~~~~~~~
-../Src/timebase.c: At top level:
-../Src/timebase.c:35:10: error: conflicting types for 'get_tick'; have 'uint32_t(void)' {aka 'long unsigned int(void)'}
-   35 | uint32_t get_tick(void)
-      |          ^~~~~~~~
-../Src/timebase.c:20:26: note: previous implicit declaration of 'get_tick' with type 'int()'
-   20 |     uint32_t tickstart = get_tick();
-      |                          ^~~~~~~~
-make: *** [Src/subdir.mk:34: Src/timebase.o] Error 1
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Round_Robin_Scheduler.elf
+ 
+arm-none-eabi-size  Round_Robin_Scheduler.elf 
+arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
+   text	   data	    bss	    dec	    hex	filename
+   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
+Finished building: default.size.stdout
+ 
+Finished building: Round_Robin_Scheduler.list
+ 
+08:33:31 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Round_Robin_Scheduler.elf
+ 
+arm-none-eabi-size  Round_Robin_Scheduler.elf 
+arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
+   text	   data	    bss	    dec	    hex	filename
+   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
+Finished building: default.size.stdout
+ 
+Finished building: Round_Robin_Scheduler.list
+ 
+08:34:02 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'task0':
+../Src/main.c:26:17: error: 'a' undeclared (first use in this function)
+   26 |                 a++;
+      |                 ^
+../Src/main.c:26:17: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:37: Src/main.o] Error 1
 "make -j12 all" terminated with exit code 2. Build might be incomplete.
-00:38:43 **** Incremental Build of configuration Debug for project UART_Driver ****
+08:34:11 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
 make -j12 all 
-arm-none-eabi-gcc "../Src/timebase.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/timebase.d" -MT"Src/timebase.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/timebase.o"
-arm-none-eabi-gcc -o "UART_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/UART_Driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: UART_Driver.elf
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Round_Robin_Scheduler.elf
  
-arm-none-eabi-size  UART_Driver.elf 
-arm-none-eabi-objdump -h -S UART_Driver.elf  > "UART_Driver.list"
+arm-none-eabi-size  Round_Robin_Scheduler.elf 
+arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
    text	   data	    bss	    dec	    hex	filename
-   5616	     96	   1912	   7624	   1dc8	UART_Driver.elf
+   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
 Finished building: default.size.stdout
  
-Finished building: UART_Driver.list
+Finished building: Round_Robin_Scheduler.list
  
-00:43:56 **** Incremental Build of configuration Debug for project UART_Driver ****
+08:35:24 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
 make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "UART_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/UART_Driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: UART_Driver.elf
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Round_Robin_Scheduler.elf
  
-arm-none-eabi-size  UART_Driver.elf 
-arm-none-eabi-objdump -h -S UART_Driver.elf  > "UART_Driver.list"
+arm-none-eabi-size  Round_Robin_Scheduler.elf 
+arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
    text	   data	    bss	    dec	    hex	filename
-   5524	     96	   1912	   7532	   1d6c	UART_Driver.elf
+   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
 Finished building: default.size.stdout
  
-Finished building: UART_Driver.list
+Finished building: Round_Robin_Scheduler.list
  
-00:46:02 **** Incremental Build of configuration Debug for project UART_Driver ****
+08:36:37 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
 make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "UART_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/UART_Driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: UART_Driver.elf
+arm-none-eabi-gcc "../Src/kernel.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/kernel.d" -MT"Src/kernel.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/kernel.o"
+arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Round_Robin_Scheduler.elf
  
-arm-none-eabi-size  UART_Driver.elf 
-arm-none-eabi-objdump -h -S UART_Driver.elf  > "UART_Driver.list"
+arm-none-eabi-size  Round_Robin_Scheduler.elf 
+arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
    text	   data	    bss	    dec	    hex	filename
-   5524	     96	   1912	   7532	   1d6c	UART_Driver.elf
+   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
 Finished building: default.size.stdout
  
-Finished building: UART_Driver.list
+Finished building: Round_Robin_Scheduler.list
  
-00:47:48 **** Incremental Build of configuration Debug for project UART_Driver ****
+08:36:41 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
 make -j12 all 
-arm-none-eabi-gcc "../Src/timebase.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/timebase.d" -MT"Src/timebase.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/timebase.o"
-arm-none-eabi-gcc -o "UART_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/UART_Driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: UART_Driver.elf
- 
-arm-none-eabi-size  UART_Driver.elf 
-arm-none-eabi-objdump -h -S UART_Driver.elf  > "UART_Driver.list"
+arm-none-eabi-size  Round_Robin_Scheduler.elf 
    text	   data	    bss	    dec	    hex	filename
-   5524	     96	   1912	   7532	   1d6c	UART_Driver.elf
+   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
 Finished building: default.size.stdout
  
-Finished building: UART_Driver.list
+08:37:21 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
+make -j12 all 
+arm-none-eabi-size  Round_Robin_Scheduler.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
+Finished building: default.size.stdout
+ 
+08:38:58 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
+make -j12 all 
+arm-none-eabi-size  Round_Robin_Scheduler.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
+Finished building: default.size.stdout
+ 
+08:40:51 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
+make -j12 all 
+arm-none-eabi-size  Round_Robin_Scheduler.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6308	     92	   3148	   9548	   254c	Round_Robin_Scheduler.elf
+Finished building: default.size.stdout
+ 
+08:45:18 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/kernel.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/kernel.d" -MT"Src/kernel.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/kernel.o"
+arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Round_Robin_Scheduler.elf
+ 
+arm-none-eabi-size  Round_Robin_Scheduler.elf 
+arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
+   text	   data	    bss	    dec	    hex	filename
+   6312	     92	   6748	  13152	   3360	Round_Robin_Scheduler.elf
+Finished building: default.size.stdout
+ 
+Finished building: Round_Robin_Scheduler.list
+ 
+08:46:22 **** Incremental Build of configuration Debug for project Round_Robin_Scheduler ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Round_Robin_Scheduler.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Round_Robin_Scheduler/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Round_Robin_Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Round_Robin_Scheduler.elf
+ 
+arm-none-eabi-size  Round_Robin_Scheduler.elf 
+arm-none-eabi-objdump -h -S Round_Robin_Scheduler.elf  > "Round_Robin_Scheduler.list"
+   text	   data	    bss	    dec	    hex	filename
+   6288	     92	   6748	  13128	   3348	Round_Robin_Scheduler.elf
+Finished building: default.size.stdout
+ 
+Finished building: Round_Robin_Scheduler.list
  
