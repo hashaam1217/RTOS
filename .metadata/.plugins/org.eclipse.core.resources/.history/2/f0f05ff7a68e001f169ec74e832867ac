@@ -1,0 +1,18 @@
+#define "uart.h"
+#define "stm32f446xx.h"
+
+#define GPIOAEN			(1U<<0) //the bit we want to enable
+
+void uart_tx_init(void)
+{
+	//enable clock access
+	RCC->AHB1ENR |= GPIOAEN;
+	//Finding GPIO Pins for USART2
+	//Set alternate function type to AF7 (UART2_TX)
+
+	//Enable clock access to UART
+	//Configure baudrate
+	//Configure the transfer direction
+	//Enable UART module
+
+}

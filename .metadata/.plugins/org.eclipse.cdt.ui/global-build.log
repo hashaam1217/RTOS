@@ -1,34 +1,78 @@
-11:20:25 **** Incremental Build of configuration Debug for project Led_Driver ****
+22:40:53 **** Incremental Build of configuration Debug for project UART_Driver ****
 make -j12 all 
-arm-none-eabi-gcc "../Src/led.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F446xx -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Led_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Led_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/led.d" -MT"Src/led.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/led.o"
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F446xx -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Led_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Led_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F446xx -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Led_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Led_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F446xx -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Led_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Led_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
-arm-none-eabi-gcc -o "Led_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Led_Driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Led_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Led_Driver.elf
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/uart.d" -MT"Src/uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/uart.o"
+arm-none-eabi-gcc -o "UART_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/UART_Driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART_Driver.elf
  
-arm-none-eabi-size  Led_Driver.elf 
-arm-none-eabi-objdump -h -S Led_Driver.elf  > "Led_Driver.list"
+arm-none-eabi-size  UART_Driver.elf 
+arm-none-eabi-objdump -h -S UART_Driver.elf  > "UART_Driver.list"
    text	   data	    bss	    dec	    hex	filename
-    720	      0	   1568	   2288	    8f0	Led_Driver.elf
+   5396	     92	   1900	   7388	   1cdc	UART_Driver.elf
 Finished building: default.size.stdout
  
-Finished building: Led_Driver.list
+Finished building: UART_Driver.list
  
-12:25:04 **** Incremental Build of configuration Debug for project Led_Driver ****
+22:41:09 **** Incremental Build of configuration Debug for project UART_Driver ****
 make -j12 all 
-arm-none-eabi-gcc "../Src/led.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Led_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Led_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/led.d" -MT"Src/led.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/led.o"
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Led_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Led_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Led_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Led_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/Led_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/Led_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
-arm-none-eabi-gcc -o "Led_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/Led_Driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Led_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Led_Driver.elf
- 
-arm-none-eabi-size  Led_Driver.elf 
-arm-none-eabi-objdump -h -S Led_Driver.elf  > "Led_Driver.list"
+arm-none-eabi-size  UART_Driver.elf 
    text	   data	    bss	    dec	    hex	filename
-    720	      0	   1568	   2288	    8f0	Led_Driver.elf
+   5396	     92	   1900	   7388	   1cdc	UART_Driver.elf
 Finished building: default.size.stdout
  
-Finished building: Led_Driver.list
+22:41:39 **** Incremental Build of configuration Debug for project UART_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "UART_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/UART_Driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART_Driver.elf
+ 
+arm-none-eabi-size  UART_Driver.elf 
+arm-none-eabi-objdump -h -S UART_Driver.elf  > "UART_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   5396	     92	   1900	   7388	   1cdc	UART_Driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: UART_Driver.list
+ 
+22:42:52 **** Incremental Build of configuration Debug for project UART_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -c -I../Inc -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Include" -I"/home/hollowknight/Documents/code/RTOS/UART_Driver/Cleaned_Up_Version/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "UART_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/hollowknight/Documents/code/RTOS/UART_Driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART_Driver.elf
+ 
+arm-none-eabi-size  UART_Driver.elf 
+arm-none-eabi-objdump -h -S UART_Driver.elf  > "UART_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   5408	     92	   1900	   7400	   1ce8	UART_Driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: UART_Driver.list
+ 
+22:46:34 **** Incremental Build of configuration Debug for project UART_Driver ****
+make -j12 all 
+arm-none-eabi-size  UART_Driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5408	     92	   1900	   7400	   1ce8	UART_Driver.elf
+Finished building: default.size.stdout
+ 
+22:46:53 **** Incremental Build of configuration Debug for project UART_Driver ****
+make -j12 all 
+arm-none-eabi-size  UART_Driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5408	     92	   1900	   7400	   1ce8	UART_Driver.elf
+Finished building: default.size.stdout
+ 
+22:47:11 **** Incremental Build of configuration Debug for project UART_Driver ****
+make -j12 all 
+arm-none-eabi-size  UART_Driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5408	     92	   1900	   7400	   1ce8	UART_Driver.elf
+Finished building: default.size.stdout
+ 
+22:47:42 **** Incremental Build of configuration Debug for project UART_Driver ****
+make -j12 all 
+arm-none-eabi-size  UART_Driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5408	     92	   1900	   7400	   1ce8	UART_Driver.elf
+Finished building: default.size.stdout
  
